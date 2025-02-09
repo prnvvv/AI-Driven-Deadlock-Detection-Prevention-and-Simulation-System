@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 import joblib
 from sklearn.preprocessing import StandardScaler
-import seaborn as sns
 import matplotlib.pyplot as plt
 
 def load_model():

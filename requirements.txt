@@ -1,3 +1,7 @@
+langchain_groq
+chromadb
+openai
+langchain-community
 streamlit
 pandas
 numpy
@@ -5,3 +9,6 @@ scikit-learn
 seaborn
 matplotlib
 joblib
+langchain==0.0.226
+sentence-transformers==2.2.2
+datetime==5.1
