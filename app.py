@@ -1,10 +1,8 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import joblib
+import pickle  
 from langchain_groq import ChatGroq
-from langchain.prompts import PromptTemplate
-from langchain.chains import LLMChain
 from langchain.memory import ConversationBufferMemory
 from datetime import datetime
 import plotly.graph_objects as go
@@ -116,11 +114,12 @@ def initialize_llm():
         st.error(f"Error initializing LLM components: {str(e)}")
         return None, None
 
-# Load ML model
+# Load ML model - CHANGED FROM JOBLIB TO PICKLE
 @st.cache_resource
 def load_ml_model():
     try:
-        return joblib.load('best_classification_model.pkl')
+        with open('best_classification_model.pkl', 'rb') as f:
+            return pickle.load(f)
     except Exception as e:
         st.error(f"Error loading ML model: {str(e)}")
         return None

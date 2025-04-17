@@ -1,6 +1,0 @@
-python-dotenv
-langchain
-langchain-groq
-groq
-chromadb
-sentence-transformers
