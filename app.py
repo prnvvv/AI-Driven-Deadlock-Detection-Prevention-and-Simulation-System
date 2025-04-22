@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import pickle  
+import joblib
 from langchain_groq import ChatGroq
 from langchain.memory import ConversationBufferMemory
 from datetime import datetime
@@ -114,12 +114,11 @@ def initialize_llm():
         st.error(f"Error initializing LLM components: {str(e)}")
         return None, None
 
-# Load ML model - CHANGED FROM JOBLIB TO PICKLE
+# Load ML model
 @st.cache_resource
 def load_ml_model():
     try:
-        with open('best_classification_model.pkl', 'rb') as f:
-            return pickle.load(f)
+        return joblib.load('best_classification_model.pkl')
     except Exception as e:
         st.error(f"Error loading ML model: {str(e)}")
         return None
@@ -578,3 +577,4 @@ def cleanup():
 
 # Register cleanup handler
 st.session_state['cleanup_registered'] = True
+

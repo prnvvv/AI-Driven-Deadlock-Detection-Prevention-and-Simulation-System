@@ -11,7 +11,7 @@ from typing import Dict, List, Any
 llm = ChatGroq(
     model="deepseek-r1-distill-llama-70b",
     temperature=0.2,
-    groq_api_key=api_key 
+    groq_api_key="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" 
 )
 
 embedding_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
